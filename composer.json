@@ -1,0 +1,14 @@
+{
+    "name": "user/steg-chat",
+    "description": "implementing steganography in chat",
+    "require": {
+        "monolog/monolog": "^1.24",
+        "picamator/steganographykit": "^1.1"
+    },
+    "authors": [
+        {
+            "name": "Prasant Jha",
+            "email": "prasantjha@hotmail.com"
+        }
+    ]
+}

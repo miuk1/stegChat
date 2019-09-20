@@ -1,0 +1,23 @@
+# composer
+vendor/
+*.phar
+
+# PhpStorm
+.idea
+
+# Zend Studio
+.buildpath
+.project
+.settings
+
+# Netbeans
+nbproject
+
+# ArgoUML temp files
+*.*~
+
+# Windows thumbnail cache
+Thumbs.db
+
+# MacOS cache
+.DS_Store

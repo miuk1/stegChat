@@ -1,0 +1,11 @@
+.jumbotron-fluid {
+  height: 70vh;
+  padding: 80px;
+  background-image: url("../bg.jpg");
+  background-blend-mode: lighten;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+  line-height: 1.8;
+  font-weight: bolder;
+}
