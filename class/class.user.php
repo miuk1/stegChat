@@ -58,6 +58,7 @@ class user
 
   public function logout()
   {
+    session_start();
     $_SESSION['login'] = false;
     session_unset();
     session_destroy();
@@ -73,5 +74,27 @@ class user
       $rows[] = $row;
     }
     return $rows;
+  }
+
+  public function fetch_messages($receiverid)
+  {
+    $sql = "SELECT * FROM messages WHERE receiver_id = '$receiverid'";
+    $result = mysqli_query($this->db, $sql) or die(mysqli_connect_error() . "Error fetching messages");
+    $messages = array();
+    while ($row = $result->fetch_assoc()) {
+      $messages[] = $row;
+    }
+    return $messages;
+  }
+
+  public function fetch_sentmessages($senderid)
+  {
+    $sql = "SELECT * FROM messages WHERE sender_id = '$senderid'";
+    $result = mysqli_query($this->db, $sql) or die(mysqli_connect_error() . "Error fetching messages");
+    $messages = array();
+    while ($row = $result->fetch_assoc()) {
+      $messages[] = $row;
+    }
+    return $messages;
   }
 }

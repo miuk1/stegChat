@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8" style="margin: 10px; padding: 10px; border: 1px solid black;">
-      <form action="../controller/send.php" method="POST">
+      <form action="../controller/send.php" method="POST" enctype="multipart/form-data">
         <div class="form-group">
           <label for="exampleFormControlTitle">Message Title</label>
           <input type="text" name="messageTitle" class="form-control" id="exampleFormControlTitle">
@@ -19,7 +19,7 @@
 
         <div class="form-group">
           <label for="exampleFormControlFile1">Image file</label>
-          <input type="file" name="messageImage" class="form-control-file" id="exampleFormControlFile1">
+          <input type="file" name="messageImage" class="form-control-file" id="messageImage">
         </div>
         <input type="submit" class="btn btn-primary mb-2" value="Send Message" name="submit">
       </form>

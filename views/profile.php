@@ -7,17 +7,15 @@ require('../includes/nav.php');
 include('../class/class.user.php');
 $user = new User();
 
-if ($_SESSION['login']) {
+if (isset($_SESSION['login'])) {
   $profile = $user->get_profile($_SESSION['uid']);
   $users = $user->get_users($profile['user_id']);
-}
 
-?>
-
+  echo '
 <div class="container">
   <ul class="nav  nav-pills nav-justified justify-content-center">
     <li class="nav-item">
-      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"><?php echo $profile['user_name'] ?></a>
+      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">' . $profile['user_name'] . '</a>
     </li>
     <li class="nav-item">
       <a class="nav-link active" href="#">Send</a>
@@ -27,9 +25,11 @@ if ($_SESSION['login']) {
     </li>
 
   </ul>
-</div>
-<?php
-require('send.php');
-require('../includes/foot.php');
+</div>';
 
-?>
+
+  require('send.php');
+} else {
+  echo 'Please login';
+}
+require('../includes/foot.php');
