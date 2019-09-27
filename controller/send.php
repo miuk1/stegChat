@@ -1,7 +1,9 @@
 <?php
-
+require '../vendor/autoload.php';
 include('../class/class.messages.php');
 $message = new Messages();
+$stegoContainer = new Picamator\SteganographyKit\StegoContainer();
+
 
 if (isset($_POST['submit'])) {
   $messageTitle = $_POST['messageTitle'];
@@ -41,24 +43,18 @@ if (isset($_POST['submit'])) {
     echo "Sorry, your file was not uploaded.";
     // if everything is ok, try to upload file
   } else {
-    if (move_uploaded_file($_FILES["messageImage"]["tmp_name"], $uploadedFile)) {
-      echo "The file " . basename($_FILES["messageImage"]["name"]) . " has been uploaded.";
-    } else {
-      echo "Sorry, there was an error uploading your file.";
-    }
+    $stegoContainer->encode($_FILES["messageImage"]["tmp_name"], '../uploads/' . $_FILES["messageImage"]["name"], $secretMessage);
   }
 
 
 
   $receiverid = $message->fetch_receiver($receiver);
 
-  /*$sendMessage = $message->send_message($messageTitle, $file, $senderid, $receiverid, $seen);
+  $sendMessage = $message->send_message($messageTitle, $uploadedFile, $senderid, $receiverid, $seen);
   if ($sendMessage) {
     echo '<script>alert("Message Sent Successfully")
-        window.location = "http://localhost/stegChat/views/profile.php";
     </script>';
   } else {
     die('Message could not be sent');
   }
-  */
 }
