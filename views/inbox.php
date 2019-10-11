@@ -45,6 +45,7 @@ if ($_SESSION['login']) {
         <th scope="col">#</th>
         <th scope="col">Sender Id</th>
         <th scope="col">Message Title</th>
+        <th scope="col">Image Received</th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -55,7 +56,8 @@ if ($_SESSION['login']) {
           <th scope="row">' . $key . '</th>
           <td>' . $message['sender_id'] . '</td>
           <td>' . $message['message_title'] . '</td>
-          <td><a href="">Decode</a></td>
+          <td><img src="' . $message['message_file'] . '" height="100"></td>
+          <td><a href="../controller/decode.php?link=' . $message['message_file'] . '">Decode</a></td>
         </tr>';
           }
         }
@@ -76,7 +78,6 @@ if ($_SESSION['login']) {
         <th scope="col">#</th>
         <th scope="col">Receiver Id</th>
         <th scope="col">Message Title</th>
-        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>';
@@ -86,7 +87,7 @@ if ($_SESSION['login']) {
           <th scope="row">' . $key . '</th>
           <td>' . $message['receiver_id'] . '</td>
           <td>' . $message['message_title'] . '</td>
-          <td><a href="">Decode</a></td>
+          
         </tr>';
           }
         }

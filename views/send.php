@@ -8,18 +8,18 @@
         </div>
         <div class="form-group">
           <label for="exampleFormControlUser">Username</label>
-          <input type="text" name="receiver" class="form-control" id="exampleFormControlUser">
+          <input type="text" name="receiver" class="form-control" id="exampleFormControlUser" required>
           <?php echo  '<input type="hidden" name="sender" value="' . $profile['user_id'] . '">'; ?>
         </div>
 
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Message</label>
-          <textarea class="form-control" name="secretMessage" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <textarea class="form-control" name="secretMessage" id="exampleFormControlTextarea1" rows="3" required></textarea>
         </div>
 
         <div class="form-group">
           <label for="exampleFormControlFile1">Image file</label>
-          <input type="file" name="messageImage" class="form-control-file" id="messageImage">
+          <input type="file" name="messageImage" class="form-control-file" id="messageImage" required>
         </div>
         <input type="submit" class="btn btn-primary mb-2" value="Send Message" name="submit">
       </form>
